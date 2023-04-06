@@ -35,5 +35,7 @@ module CharityWeb
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+    config.hosts << 'test.wells.tw'
+    config.hosts << 'charity-web.dokku.wells.tw'
   end
 end
