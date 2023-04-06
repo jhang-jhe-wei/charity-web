@@ -176,6 +176,10 @@ GEM
       irb (>= 1.5.0)
       reline (>= 0.3.1)
     diff-lcs (1.5.0)
+    dotenv (2.8.1)
+    dotenv-rails (2.8.1)
+      dotenv (= 2.8.1)
+      railties (>= 3.2)
     erubi (1.12.0)
     factory_bot (6.2.1)
       activesupport (>= 5.0.0)
@@ -196,6 +200,19 @@ GEM
     jsbundling-rails (1.1.1)
       railties (>= 6.0.0)
     json (2.6.3)
+    kamiflex (0.17.0)
+      json
+    kamigo (0.31.0)
+      kamiflex (~> 0.17, >= 0.17.0)
+      kamiliff (~> 0.36, >= 0.36.0)
+      line-bot-api (~> 1.5)
+      rails (>= 5.0.0)
+    kamiliff (0.36.0)
+      line_login (>= 0.1.0)
+      rails (>= 5.0.0)
+    line-bot-api (1.28.0)
+    line_login (0.1.0)
+      json
     loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
@@ -342,9 +359,11 @@ DEPENDENCIES
   cucumber-rails
   database_cleaner
   debug
+  dotenv-rails (~> 2.8)
   factory_bot_rails
   jbuilder
   jsbundling-rails
+  kamigo (~> 0.31.0)
   puma (~> 5.0)
   rails (~> 7.0.4)
   rspec-core!
