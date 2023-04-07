@@ -11,24 +11,7 @@ on:
 jobs:
   test:
     name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: 3.1.4
-
-      - name: Install dependencies
-        run: bundle install --jobs 4 --retry 3
-
-      - name: Run Rspec
-        run: bundle exec rspec
-
-      - name: Run Cucumber
-        run: bundle exec cucumber
+    uses: ./.github/workflows/test-action.yml
 
   deploy:
     name: Deploy to dokku
