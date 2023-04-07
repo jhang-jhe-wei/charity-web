@@ -57,7 +57,7 @@
     end
   end
 
-  json = raw(Kamiflex.hash(self) do
+  raw(Kamiflex.hash(self) do
     carousel do
       bubbles vars do |var|
         hero var[:img],
@@ -81,6 +81,4 @@
       # pagenator("志工活動", nil)
     end
   end.to_json)
-  puts json
-  json
 %>
