@@ -81,3 +81,5 @@ end
 gem "kamigo", "~> 0.31.0"
 
 gem "dotenv-rails", "~> 2.8"
+
+gem "lotify", "~> 0.3.0"

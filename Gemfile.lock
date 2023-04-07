@@ -216,6 +216,8 @@ GEM
     loofah (2.20.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
+    lotify (0.3.0)
+      json
     mail (2.8.1)
       mini_mime (>= 0.1.1)
       net-imap
@@ -364,6 +366,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   kamigo (~> 0.31.0)
+  lotify (~> 0.3.0)
   puma (~> 5.0)
   rails (~> 7.0.4)
   rspec-core!
