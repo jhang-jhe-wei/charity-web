@@ -4,4 +4,7 @@ class HomesController < ApplicationController
 
   def my_favorite
   end
+
+  def fan_page
+  end
 end
