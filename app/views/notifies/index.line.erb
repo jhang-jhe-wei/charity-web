@@ -1,0 +1,7 @@
+<%= raw(Kamiflex.hash(self) do
+    carousel do
+        cover(@auth_link)
+        page("我的最愛", "訂閱此通知後加入我的最愛中的活動在截止日期將至和變更時會通知。")
+        page("我的活動", "訂閱此通知後會在你報名的活動開始前三天通知您。")
+    end
+end.to_json)%>
