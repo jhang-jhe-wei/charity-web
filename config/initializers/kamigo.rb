@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Kamigo.setup do |config|
   # When user input doesn't match the route, Kamigo will pass the reuqest to default_path with default_http_method.
   # config.default_path = "/"

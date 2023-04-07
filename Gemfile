@@ -78,6 +78,10 @@ group :development do
   # gem "spring"
 end
 
-gem "kamigo", "~> 0.31.0"
+gem 'kamigo', '~> 0.31.0'
 
-gem "dotenv-rails", "~> 2.8"
+gem 'dotenv-rails', '~> 2.8'
+
+gem 'lotify', '~> 0.3.0'
+
+gem 'devise', '~> 4.9'
