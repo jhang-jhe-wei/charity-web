@@ -193,6 +193,10 @@ GEM
     factory_bot_rails (6.2.0)
       factory_bot (~> 6.2.0)
       railties (>= 5.0.0)
+    faraday (2.7.4)
+      faraday-net_http (>= 2.0, < 3.1)
+      ruby2_keywords (>= 0.0.4)
+    faraday-net_http (3.0.2)
     ffi (1.15.5)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -322,6 +326,7 @@ GEM
       rubocop (~> 1.33)
       rubocop-capybara (~> 2.17)
     ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
     rubyzip (2.3.2)
     selenium-webdriver (4.8.6)
       rexml (~> 3.2, >= 3.2.5)
@@ -377,10 +382,12 @@ DEPENDENCIES
   devise (~> 4.9)
   dotenv-rails (~> 2.8)
   factory_bot_rails
+  faraday
   jbuilder
   jsbundling-rails
   kamigo (~> 0.31.0)
   lotify (~> 0.3.0)
+  nokogiri
   puma (~> 5.0)
   rails (~> 7.0.4)
   rspec-core!
