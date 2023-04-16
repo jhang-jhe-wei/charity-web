@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require_relative '../charity_web_parsers/ijogo_parser'
 
 namespace :charitable_event do

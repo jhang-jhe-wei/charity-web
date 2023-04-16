@@ -86,5 +86,5 @@ gem 'lotify', '~> 0.3.0'
 
 gem 'devise', '~> 4.9'
 gem 'faraday'
-gem 'nokogiri'
 gem 'kaminari'
+gem 'nokogiri'
