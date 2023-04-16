@@ -85,3 +85,6 @@ gem 'dotenv-rails', '~> 2.8'
 gem 'lotify', '~> 0.3.0'
 
 gem 'devise', '~> 4.9'
+gem 'faraday'
+gem 'kaminari'
+gem 'nokogiri'

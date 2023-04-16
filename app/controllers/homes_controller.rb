@@ -1,7 +1,10 @@
 # frozen_string_literal: true
 
 class HomesController < ApplicationController
-  def recommend; end
+  def recommend
+    @current_page = params[:page] || 1
+    @charitable_events = CharitableEvent.all.page(@current_page)
+  end
 
   def my_favorite; end
 
