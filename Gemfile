@@ -59,8 +59,6 @@ end
 group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
 end
 
 group :development do
@@ -83,8 +81,10 @@ gem 'dotenv-rails', '~> 2.8'
 
 gem 'lotify', '~> 0.3.0'
 
+gem 'capybara'
 gem 'devise', '~> 4.9'
 gem 'faraday'
 gem 'kaminari'
 gem 'nokogiri'
-gem 'capybara'
+gem 'selenium-webdriver'
+gem 'webdrivers'
