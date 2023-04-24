@@ -22,7 +22,7 @@ class SafeParser
       time = item.at_css('.date')&.text
       event_type = item.at_css('.category')&.text
       working_type = item.at_css('.workingType')&.text
-      bonues = item.at_css('.bonues')&.text
+      bonus = item.at_css('.bonus')&.text
       viewer = item.at_css('.viewer')&.text
       remark = item.at_css('.remark')&.text
       deadline = item.at_css('.deadline')&.text
@@ -37,7 +37,7 @@ class SafeParser
         time: time,
         event_type: event_type,
         working_type: working_type,
-        bonues: bonues,
+        bonus: bonus,
         viewer: viewer,
         remark: remark,
         deadline: deadline,

@@ -14,6 +14,7 @@ class TaiwanNpoParser
     doc = Nokogiri::HTML(Faraday.get(WEB_URL).body)
     total_pages = doc.css('#page select option:last-child').text.to_i
     1.upto(total_pages) do |page|
+      debugger
       doc = Nokogiri::HTML(Faraday.get(WEB_URL + "&nowPage=#{page}").body)
         doc.css('.list tbody tr').each do |row|
           img_url = "https://www.npo.org.tw/upload/%7B637520089479841839%7D_common_header_logo.png"
@@ -23,7 +24,7 @@ class TaiwanNpoParser
           time = row.css("[data-th='刊登日期']").text.strip
           event_type = row.css("[data-th='志工類別']").text.strip
           working_type = nil
-          bonuses = nil
+          bonus = nil
           viewer = nil
           remark = nil
           deadline = nil
@@ -37,7 +38,7 @@ class TaiwanNpoParser
               time:,
               event_type:,
               working_type:,
-              bonuses:,
+              bonus:,
               viewer:,
               remark:,
               deadline:,

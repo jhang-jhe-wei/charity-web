@@ -8,7 +8,7 @@
       place: "羅馬競技場",
       event_type: "志工",
       working_type: "全職",
-      bonues: {
+      bonus: {
         hour: 200,
         point: 1000,
       },
@@ -24,7 +24,7 @@
       place: "羅馬競技場",
       event_type: "志工",
       working_type: "全職",
-      bonues: {
+      bonus: {
         hour: 200,
         point: 1000,
       },
@@ -40,7 +40,7 @@
       place: "羅馬競技場",
       event_type: "志工",
       working_type: "全職",
-      bonues: {
+      bonus: {
         hour: 200,
         point: 1000,
       },
@@ -71,7 +71,7 @@
             text_line "活動類型", var[:event_type]
             text_line "工作類型", var[:working_type]
             text_line "主辦單位", var[:organizer]
-            text_line "獎勵", "#{var[:bonues][:hour]}元/小時 #{var[:bonues][:point]}點"
+            text_line "獎勵", "#{var[:bonus][:hour]}元/小時 #{var[:bonus][:point]}點"
             text_line "瀏覽人數", var[:viewer].to_s
             text_line "備註", var[:remark]
             text_line "報名截止", var[:deadline]

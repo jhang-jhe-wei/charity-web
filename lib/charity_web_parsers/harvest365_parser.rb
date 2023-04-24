@@ -26,7 +26,7 @@ class Harvest365Parser
       time = post['va_startdate']
       event_type = post['va_type']
       working_type = post['va_slots']
-      bonuses = nil # there is no 'bonues' key in the response
+      bonus = nil # there is no 'bonus' key in the response
       viewer = nil # there is no 'viewer' key in the response
       remark = post['va_subtitle']
       deadline = post['va_reg_deadline']
@@ -41,7 +41,7 @@ class Harvest365Parser
         time:,
         event_type:,
         working_type:,
-        bonuses:,
+        bonus:,
         viewer:,
         remark:,
         deadline:,
