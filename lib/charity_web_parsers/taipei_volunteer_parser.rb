@@ -7,7 +7,7 @@ class TaipeiVolunteerParser
   attr_reader :data
 
   def initialize
-    @b = Capybara::Session.new(:selenium_chrome)
+    @b = Capybara.current_session
     @data = []
   end
 
@@ -22,6 +22,7 @@ class TaipeiVolunteerParser
       input_element.click
     end
     parse_all_articles
+    @b.driver.quit
     data
   end
 
