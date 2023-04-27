@@ -3,6 +3,7 @@
 class Harvest365Parser
   SOURCE_TYPE = 'harvest365'
   WEB_URL = 'https://harvest365.org/wp_function/get_activity_bysearch.php'
+  DETAIL_URL = 'https://harvest365.org/wp_function/get_activity_bynum.php'
   attr_reader :data
 
   def initialize
@@ -21,17 +22,21 @@ class Harvest365Parser
     posts.each do |post|
       img_url = "https://harvest365.org#{post['va_coverimg']}"
       name = post['va_title']
-      organizer = nil # there is no 'organizer' key in the response
-      location = post['va_city']
       time = post['va_startdate']
       event_type = post['va_type']
       working_type = post['va_slots']
-      bonus = nil # there is no 'bonus' key in the response
       viewer = nil # there is no 'viewer' key in the response
-      remark = post['va_subtitle']
       deadline = post['va_reg_deadline']
-      link = "https://harvest365.org/activitys/activity_register/?activity=#{post['va_seq']}"
-      source_type = SOURCE_TYPE
+      link = "https://harvest365.org/activitys/activity_content/?activity=#{post['va_seq']}"
+      bonus = "服務時數#{post['va_service_hours']}小時"
+
+      response = Faraday.post(DETAIL_URL, {
+        seq: post['va_seq']
+      })
+      detail = JSON.parse(response.body)[1]
+      location = detail['va_address'] || post['va_city']
+      organizer = detail['org_name']
+      remark = detail['va_contact_detail']
 
       data << {
         img_url:,
