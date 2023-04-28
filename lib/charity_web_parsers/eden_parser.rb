@@ -11,7 +11,6 @@ class EdenParser
   end
 
   def parse
-
     conn = Faraday.new(WEB_URL, ssl: { verify: false })
     doc = Nokogiri::HTML(conn.get.body)
     items = doc.css('section div.item')
@@ -19,16 +18,18 @@ class EdenParser
     items.each do |item|
       img_url = item.css('img.recruit-img').attr('src').text
       name = item.css('h4').text.strip
-      organizer = nil # organizer data is not available in the HTML
-      location = item.css('p:nth-child(2)').text.strip.split('：')[1]
-      time = item.css('p:nth-child(3)').text.strip.split('：')[1]
-      event_type = item.css('p:nth-child(4)').text.strip.split('：')[1]
-      working_type = nil # working_type data is not available in the HTML
-      bonus = item.css('label.label').map(&:text).join(' ')
-      viewer = item.css('label').text.strip.split(' ')[0]
-      remark = nil # remark data is not available in the HTML
-      deadline = nil # deadline data is not available in the HTML
-      link = 'https://volunteer.eden.org.tw' + item.css('a.goToRecruit').attr('href').text
+      location = item.css('p:nth-child(3)').text.strip.split('：')[1]
+      time = item.css('p:nth-child(4)').text.strip.split('：')[1]
+      event_type = item.css('label.label').map(&:text).join(' ')
+      link = "https://volunteer.eden.org.tw#{item.css('a.goToRecruit').attr('href').text}"
+
+      detail_doc = Nokogiri::HTML(conn.get(link).body)
+      organizer = detail_doc.at('body > div > div > section.service-say > div > div > div:nth-child(1) > div.col-12.col-sm-10.content > a').text
+      working_type = detail_doc.at('div.hire-info p:contains("服務類別")').text.gsub('服務類別：', '').strip
+      bonus = nil
+      viewer = nil
+      remark = nil
+      deadline = nil
 
       data << {
         img_url:,
@@ -46,7 +47,6 @@ class EdenParser
         source_type: SOURCE_TYPE
       }
     end
-
     data
   end
 end
