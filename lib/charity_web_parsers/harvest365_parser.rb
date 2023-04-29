@@ -31,8 +31,8 @@ class Harvest365Parser
       bonus = "服務時數#{post['va_service_hours']}小時"
 
       response = Faraday.post(DETAIL_URL, {
-        seq: post['va_seq']
-      })
+                                seq: post['va_seq']
+                              })
       detail = JSON.parse(response.body)[1]
       location = detail['va_address'] || post['va_city']
       organizer = detail['org_name']

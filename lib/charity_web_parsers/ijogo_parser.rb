@@ -34,7 +34,7 @@ class IjogoParser
       event_type = card.css('.programs_list li:nth-child(4) .main').text.strip
       working_type = card.css('.programs_list li:nth-child(5) .main').text.strip
       bonus = [card.css('.programs_metaWrap .L .main').text.strip,
-                card.css('.programs_metaWrap .R .main').text.strip].join(' | ')
+               card.css('.programs_metaWrap .R .main').text.strip].join(' | ')
       viewer = card.css('.programs_btm .view').text.strip.scan(/\d+/).first.to_i
       deadline = card.css('.programs_btm .timeout').text.strip == '已截止' ? '已截止' : ''
       link = "https://www.ijogo.com.tw#{card.css('.programs_content a').attr('href')}"
