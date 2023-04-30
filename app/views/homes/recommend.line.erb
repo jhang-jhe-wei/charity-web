@@ -13,7 +13,7 @@
     url.gsub(url.split('/').last, encoded_resource_name)
   end
 
-  hash = raw(Kamiflex.hash(self) do
+  raw(Kamiflex.hash(self) do
     carousel do
       bubbles @charitable_events do |var|
         hero encoding_url(var.img_url),
@@ -44,6 +44,4 @@
       pagenator('即時推薦', @charitable_events)
     end
   end.to_json)
-  puts hash
-  hash
 %>
