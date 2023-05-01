@@ -8,9 +8,11 @@ class FavoritesController < ApplicationController
   end
 
   def add
-    current_user.charitable_events << @event
+    current_user.favorites.create!(charitable_event: @event)
     @events = current_user.charitable_events
     render :index
+  rescue ActiveRecord::RecordInvalid => e
+    render json: { type: 'text', text: e.message }
   end
 
   def delete

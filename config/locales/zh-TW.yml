@@ -1,0 +1,14 @@
+# config/locales/zh-TW.yml
+zh-TW:
+  activerecord:
+    models:
+      favorite: '我的最愛'
+    attributes:
+      favorite:
+        charitable_event: '公益活動'
+    errors:
+      models:
+        favorite:
+          attributes:
+            charitable_event:
+              taken: '已加入我的最愛'

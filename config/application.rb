@@ -37,5 +37,7 @@ module CharityWeb
     config.generators.system_tests = nil
     config.hosts << 'test.wells.tw'
     config.hosts << 'charity-web.dokku.wells.tw'
+    config.time_zone = 'Taipei'
+    config.i18n.default_locale = 'zh-TW'
   end
 end
