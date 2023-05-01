@@ -22,6 +22,6 @@ class FavoritesController < ApplicationController
   private
 
   def set_event
-    @event = CharitableEvent.find_by(name: params[:event_name])
+    @event = CharitableEvent.find(params[:event_id])
   end
 end

@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get '訂閱通知/:notify_type', to: 'subscriptions#subscribe'
   get '取消通知/:notify_type', to: 'subscriptions#revoke'
   get '我的最愛', to: 'favorites#index', as: :favorites
-  get '加入我的最愛/:event_name', to: 'favorites#add'
-  get '刪除我的最愛/:event_name', to: 'favorites#delete'
+  get '加入我的最愛/:event_id', to: 'favorites#add'
+  get '刪除我的最愛/:event_id', to: 'favorites#delete'
   get 'notify操作說明', to: 'notifies#tutorial'
   get 'notifies/callback', to: 'notifies#callback'
 end
