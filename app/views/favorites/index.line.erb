@@ -1,9 +1,10 @@
 <%=
+  return { type: 'text', text: '目前沒有收藏的活動唷！' }.to_json if @events.empty?
+
   def text_line(text, value)
-    value ||= '無'
     baseline_box spacing: :xl do
       text text, "color": "#aaaaaa", "size": "sm", "flex": 2, align: "end"
-      text value, "color": "#666666", "size": "sm", "flex": 5
+      text value, "wrap": true, "color": "#666666", "size": "sm", "flex": 5
     end
   end
 
@@ -15,7 +16,7 @@
 
   raw(Kamiflex.hash(self) do
     carousel do
-      bubbles @charitable_events do |var|
+      bubbles @events do |var|
         hero encoding_url(var.img_url),
           size: :full, aspectRatio: "20:13", aspectMode: :cover
         body do
@@ -39,12 +40,10 @@
             filler
           end
           horizontal_box do
-            url_button "細節及報名", var.link, style: "primary"
-            message_button "加入我的最愛", "加入我的最愛/#{var.name}", style: "secondary", margin: "md"
+            message_button "從我的最愛中移除", "刪除我的最愛/#{var.name}", style: "primary", color: '#FF5151'
           end
         end
       end
-      pagenator('即時推薦', @charitable_events)
     end
   end.to_json)
 %>
