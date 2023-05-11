@@ -1,0 +1,19 @@
+<div class="flex items-center justify-center min-h-screen bg-blue-700">
+  <div class="px-32 py-24 bg-white shadow-lg rounded-2xl">
+    <h2 class="text-2xl font-bold text-center text-gray-600">公民益點通管理頁面</h2>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="mt-20 grid gap-x-8 gap-y-9 grid-cols-min-contect-and-auto">
+        <div>
+          <%= f.label :email, '帳號', class: "devise-form-label" %>
+          <%= f.email_field :email, class: "devise-form-input" %>
+        </div>
+
+        <div>
+          <%= f.label :password, class: "devise-form-label" %>
+          <%= f.password_field :password, autocomplete: "off", class: "devise-form-input" %>
+        </div>
+      </div>
+      <%= f.submit "登入", class: "px-10 py-2 mt-16 text-white bg-blue-700 rounded-3xl hover:bg-white mx-auto block hover:text-blue-700 border border-blue-700 hover:cursor-pointer" %>
+    <% end %>
+  </div>
+</div>
