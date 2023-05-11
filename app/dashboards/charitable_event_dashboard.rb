@@ -104,6 +104,6 @@ class CharitableEventDashboard < Administrate::BaseDashboard
   # across all pages of the admin dashboard.
   #
   def display_resource(charitable_event)
-    "公益活動##{charitable_event.id}"
+    charitable_event.name
   end
 end

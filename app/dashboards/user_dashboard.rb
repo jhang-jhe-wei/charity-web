@@ -13,10 +13,11 @@ class UserDashboard < Administrate::BaseDashboard
     email: Field::String,
     encrypted_password: Field::String,
     favorites: Field::HasMany,
-    image_url: Field::String,
+    image_url: Field::Url,
     line_id: Field::String,
     line_notify_token: Field::String,
     name: Field::String,
+    role: Field::String,
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
@@ -31,26 +32,20 @@ class UserDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    charitable_events
     email
-    encrypted_password
+    role
+    charitable_events
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
+    role
     charitable_events
     email
-    encrypted_password
-    favorites
     image_url
-    line_id
-    line_notify_token
     name
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
     created_at
     updated_at
   ].freeze
@@ -59,17 +54,11 @@ class UserDashboard < Administrate::BaseDashboard
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    charitable_events
-    email
-    encrypted_password
-    favorites
-    image_url
-    line_id
-    line_notify_token
     name
-    remember_created_at
-    reset_password_sent_at
-    reset_password_token
+    charitable_events
+    role
+    email
+    image_url
   ].freeze
 
   # COLLECTION_FILTERS
@@ -87,7 +76,7 @@ class UserDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how users are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(user)
-  #   "User ##{user.id}"
-  # end
+  def display_resource(user)
+    user.name
+  end
 end
