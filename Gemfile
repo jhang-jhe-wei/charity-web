@@ -92,3 +92,5 @@ gem 'nokogiri'
 gem 'rails-i18n', '~> 7.0.0'
 gem 'selenium-webdriver'
 gem 'webdrivers'
+
+gem "escompress", "~> 0.3.0"

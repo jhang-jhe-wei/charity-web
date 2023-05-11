@@ -39,5 +39,6 @@ module CharityWeb
     config.hosts << 'charity-web.dokku.wells.tw'
     config.time_zone = 'Taipei'
     config.i18n.default_locale = 'zh-TW'
+    config.assets.css_compressor = Escompress::Compressor.new(loader: :css)
   end
 end
