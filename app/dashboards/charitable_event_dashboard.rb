@@ -1,4 +1,6 @@
-require "administrate/base_dashboard"
+# frozen_string_literal: true
+
+require 'administrate/base_dashboard'
 
 class CharitableEventDashboard < Administrate::BaseDashboard
   # ATTRIBUTE_TYPES
@@ -26,7 +28,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     users: Field::HasMany,
     working_type: Field::String,
     created_at: Field::DateTime,
-    updated_at: Field::DateTime,
+    updated_at: Field::DateTime
   }.freeze
 
   # COLLECTION_ATTRIBUTES

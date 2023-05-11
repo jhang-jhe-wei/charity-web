@@ -2,11 +2,11 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-      resources :charitable_events
-      resources :users
+    resources :charitable_events
+    resources :users
 
-      root to: "charitable_events#index"
-    end
+    root to: 'charitable_events#index'
+  end
   devise_for :users
   root 'homes#recommend'
   get '即時推薦', to: 'homes#recommend'
