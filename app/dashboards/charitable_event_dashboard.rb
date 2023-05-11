@@ -14,8 +14,8 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     event_type: Field::String,
     extra_infos: Field::Text,
     favorites: Field::HasMany,
-    img_url: Field::String,
-    link: Field::String,
+    img_url: Field::Url,
+    link: Field::Url,
     location: Field::String,
     name: Field::String,
     organizer: Field::String,
@@ -36,55 +36,56 @@ class CharitableEventDashboard < Administrate::BaseDashboard
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
     id
-    bonus
+    name
+    location
+    started_at
     ended_at
-    event_type
+    registration_deadline
+    bonus
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
   # an array of attributes that will be displayed on the model's show page.
   SHOW_PAGE_ATTRIBUTES = %i[
     id
-    bonus
-    ended_at
-    event_type
-    extra_infos
-    favorites
-    img_url
-    link
-    location
     name
-    organizer
+    bonus
+    started_at
+    ended_at
     registration_deadline
+    event_type
+    location
+    organizer
     remark
     source_type
-    started_at
     users
     working_type
     created_at
     updated_at
+    link
+    img_url
   ].freeze
 
   # FORM_ATTRIBUTES
   # an array of attributes that will be displayed
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
-    bonus
-    ended_at
-    event_type
-    extra_infos
-    favorites
-    img_url
-    link
-    location
     name
-    organizer
+    bonus
+    started_at
+    ended_at
     registration_deadline
+    event_type
+    location
+    organizer
     remark
     source_type
-    started_at
     users
     working_type
+    created_at
+    updated_at
+    link
+    img_url
   ].freeze
 
   # COLLECTION_FILTERS
@@ -102,7 +103,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
   # Overwrite this method to customize how charitable events are displayed
   # across all pages of the admin dashboard.
   #
-  # def display_resource(charitable_event)
-  #   "CharitableEvent ##{charitable_event.id}"
-  # end
+  def display_resource(charitable_event)
+    "公益活動##{charitable_event.id}"
+  end
 end
