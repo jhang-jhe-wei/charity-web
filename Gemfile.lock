@@ -247,6 +247,9 @@ GEM
       activerecord
       kaminari-core (= 1.2.2)
     kaminari-core (1.2.2)
+    kaminari-i18n (0.5.0)
+      kaminari
+      rails
     line-bot-api (1.28.0)
     line_login (0.1.0)
       json
@@ -430,6 +433,7 @@ DEPENDENCIES
   jsbundling-rails
   kamigo (~> 0.31.0)
   kaminari
+  kaminari-i18n
   lotify (~> 0.3.0)
   nokogiri
   puma (~> 5.0)
