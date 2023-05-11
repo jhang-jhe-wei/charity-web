@@ -1,11 +1,46 @@
 # config/locales/zh-TW.yml
 zh-TW:
+  helpers:
+    label:
+      user:
+        charitable_events: "公益活動"
   activerecord:
     models:
-      favorite: '我的最愛'
+      charitable_event: "公益活動"
+      favorite: "我的最愛"
+      user: "使用者"
     attributes:
+      charitable_event:
+        extra_infos: "額外資訊"
+        img_url: "圖片網址"
+        name: "名稱"
+        organizer: "主辦單位"
+        location: "地點"
+        started_at: "開始時間"
+        ended_at: "結束時間"
+        event_type: "活動類型"
+        working_type: "工作類型"
+        bonus: "獎金"
+        registration_deadline: "報名截止日期"
+        link: "網站連結"
+        remark: "備註"
+        source_type: "來源類型"
       favorite:
-        charitable_event: '公益活動'
+        charitable_event_id: "公益活動ID"
+        user_id: "使用者ID"
+      user:
+        email: "電子郵件"
+        encrypted_password: "加密密碼"
+        reset_password_token: "重設密碼權杖"
+        reset_password_sent_at: "重設密碼寄送時間"
+        remember_created_at: "記住我建立時間"
+        line_id: "Line ID"
+        name: "姓名"
+        line_notify_token: "Line 通知權杖"
+        image_url: "圖片網址"
+        created_at: "建立時間"
+        updated_at: "更新時間"
+        role: "角色"
     errors:
       models:
         favorite:
