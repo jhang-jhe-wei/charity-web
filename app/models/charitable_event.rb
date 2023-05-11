@@ -68,7 +68,8 @@ class CharitableEvent < ApplicationRecord
       self.started_at = parse_datetime(time)
       self.ended_at = nil
     end
-  rescue ArgumentError
+  rescue StandardError => e
+    Rails.logger.error(e.message)
     self.started_at = nil
     self.ended_at = nil
   end
@@ -88,7 +89,8 @@ class CharitableEvent < ApplicationRecord
                                  else
                                    DateTime.parse(deadline)
                                  end
-  rescue ArgumentError
+  rescue StardardError => e
+    Rails.logger.error(e.message)
     self.registration_deadline = nil
   end
 end
