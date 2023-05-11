@@ -33,7 +33,7 @@ namespace :charitable_event do
                                            source_type: '國泰慈善基金會',
                                          })
       PARSERS.each do |parser|
-        parser.new.parse.each { |event| CharitableEvent.create_with(event).find_or_create_by(link: event.link) }
+        parser.new.parse.each { |event| CharitableEvent.create_with(event).find_or_create_by(link: event[:link]) }
       end
     end
   end
