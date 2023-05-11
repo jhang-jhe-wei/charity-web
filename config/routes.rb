@@ -2,11 +2,10 @@
 
 Rails.application.routes.draw do
   namespace :admin do
-      resources :favorites
       resources :charitable_events
       resources :users
 
-      root to: "favorites#index"
+      root to: "charitable_events#index"
     end
   devise_for :users
   root 'homes#recommend'
