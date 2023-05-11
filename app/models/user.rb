@@ -1,11 +1,13 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  ROLES = ['user', 'admin']
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :validatable, :rememberable
   has_many :favorites, dependent: :destroy
   has_many :charitable_events, through: :favorites
+  validates :role, inclusion: { in: ROLES }
 
   # params[:source_user_id]
   # params[:profile][:displayName]
@@ -26,5 +28,9 @@ class User < ApplicationRecord
 
   def password_required?
     false
+  end
+
+  def admin?
+    role == 'admin'
   end
 end

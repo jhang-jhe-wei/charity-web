@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_01_103247) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_11_135336) do
   create_table "charitable_events", force: :cascade do |t|
     t.text "extra_infos"
     t.datetime "created_at", null: false
@@ -52,6 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_01_103247) do
     t.string "image_url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "role", default: "user"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
