@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  namespace :admin do
+      resources :favorites
+      resources :charitable_events
+      resources :users
+
+      root to: "favorites#index"
+    end
   devise_for :users
   root 'homes#recommend'
   get '即時推薦', to: 'homes#recommend'

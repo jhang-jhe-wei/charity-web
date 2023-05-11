@@ -81,6 +81,7 @@ gem 'dotenv-rails', '~> 2.8'
 
 gem 'lotify', '~> 0.3.0'
 
+gem 'administrate'
 gem 'capybara'
 gem 'devise', '~> 4.9'
 gem 'faraday'
