@@ -8,7 +8,7 @@ class IjogoParser
 
   def initialize
     doc = Nokogiri::HTML(Faraday.get(WEB_URL).body)
-    @total_page = doc.css('.totalPage .num')[-1].text.to_i
+    @total_page = doc.css('.totalPage .num')[-1]&.text&.to_i || 1
     @data = []
   end
 
