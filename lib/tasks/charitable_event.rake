@@ -7,8 +7,10 @@ require_relative '../charity_web_parsers/harvest365_parser'
 require_relative '../charity_web_parsers/igiving_parser'
 require_relative '../charity_web_parsers/safe_parser'
 require_relative '../charity_web_parsers/eden_parser'
+require_relative '../charity_web_parsers/cathaylife_parser'
 
 PARSERS = [
+  CathaylifeParser,
   Harvest365Parser,
   TaiwanNpoParser,
   TaipeiVolunteerParser,
@@ -22,16 +24,6 @@ namespace :charitable_event do
   desc 'load from online'
   task load_data_from_online: :environment do
     ActiveRecord::Base.transaction do
-      CharitableEvent.find_or_create_by!({
-                                           img_url: 'https://agent2.cathaylife.com.tw/PDZZ/Path/META_IMG/OD/AY/20210727113439.jpg',
-                                           name: '國泰卓越獎助計畫',
-                                           organizer: '國泰慈善基金會',
-                                           location: '全國',
-                                           event_type: '獎助',
-                                           bonus: '20萬元',
-                                           link: 'https://patron.cathaylife.com.tw/ODAY/F1/ODAYF100',
-                                           source_type: '國泰慈善基金會',
-                                         })
       PARSERS.each do |parser|
         parser.new.parse.each { |event| CharitableEvent.create_with(event).find_or_create_by(link: event[:link]) }
       end
