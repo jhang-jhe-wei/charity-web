@@ -1,100 +1,101 @@
 <%=
-  vars = [
-    {
-      subject: "世界展望會",
-      title: "飢餓3000",
-      info: "如有變更，依官網公告為準",
-      status: "進行中",
-      steps: [
-        {
-          title: "報名",
-          date: "08/19",
-          info: "開始報名",
-          extra: "09/01報名截止\n09/05通知結果\n09/10備取通知"
-        },
-        {
-          title: "開始",
-          date: "09/19",
-          info: "活動開始",
-          extra: "08:00報到\n18:00結束"
-        },
-        {
-          title: "結案",
-          date: "11/14",
-          info: "寄送證明和獎勵"
-        }
-      ]
-    },
-    {
-      subject: "世界展望會",
-      title: "飢餓3000",
-      info: "如有變更，依官網公告為準",
-      status: "已結案",
-      steps: [
-        {
-          title: "報名",
-          date: "08/19",
-          info: "開始報名",
-          extra: "09/01報名截止\n09/05通知結果\n09/10備取通知"
-        },
-        {
-          title: "開始",
-          date: "09/19",
-          info: "活動開始",
-          extra: "08:00報到\n18:00結束"
-        },
-        {
-          title: "結案",
-          date: "11/14",
-          info: "寄送證明和獎勵"
-        }
-      ]
-    }
-  ]
-
-  raw((Kamiflex.hash(self) do
-    carousel do
-      bubbles vars, size: "mega" do |var|
-        header paddingAll: "20px", backgroundColor: "#0367D3", spacing: "md", paddingTop: "22px" do
-          vertical_box do
-            text var[:title], color: "#FFFFFF", size: "xl", flex: 4, weight: "bold"
-            text var[:subject], color: "#FFFFFFEE", size: "md"
-            text var[:status], color: "#FFFFFFCC", size: "sm"
-          end
-        end
-        body do
-          text var[:info], color: "#b7b7b7", size: "xs"
-          var[:steps].each_with_index do |step, index|
-            horizontal_box spacing: "lg", margin: "xl" do
-              text "#{step[:title]}#{step[:date]}", size: "sm", gravity: "center", wrap: true
-              vertical_box flex: 0 do
-                filler
-                vertical_box cornerRadius: "30px", height: "12px", width: "12px", borderColor: "#{index == 0 ? '#EF454D': '#6486E3'}", borderWidth: "2px" do
-                end
-                filler
-              end
-              text step[:info], gravity: "center", flex: 4, size: "sm"
-            end
-            if step[:extra]
-              horizontal_box spacing: "lg", height: "64px" do
-                baseline_box do
-                  filler
-                end
-                vertical_box width: "12px" do
-                  horizontal_box flex: 1 do
-                    filler
-                    vertical_box width: "2px", backgroundColor: "#6486E3" do
-                    end
-                    filler
-                  end
-                end
-                text step[:extra], gravity: "center", flex: 4, size: "xs", color: "#8c8c8c", wrap: true
-              end
-            end
-
-          end
-        end
-      end
-    end
-  end).to_json)
+  raw({ type: 'text', text: '目前此功能還尚未開放' }.to_json)
+  # vars = [
+  #   {
+  #     subject: "世界展望會",
+  #     title: "飢餓3000",
+  #     info: "如有變更，依官網公告為準",
+  #     status: "進行中",
+  #     steps: [
+  #       {
+  #         title: "報名",
+  #         date: "08/19",
+  #         info: "開始報名",
+  #         extra: "09/01報名截止\n09/05通知結果\n09/10備取通知"
+  #       },
+  #       {
+  #         title: "開始",
+  #         date: "09/19",
+  #         info: "活動開始",
+  #         extra: "08:00報到\n18:00結束"
+  #       },
+  #       {
+  #         title: "結案",
+  #         date: "11/14",
+  #         info: "寄送證明和獎勵"
+  #       }
+  #     ]
+  #   },
+  #   {
+  #     subject: "世界展望會",
+  #     title: "飢餓3000",
+  #     info: "如有變更，依官網公告為準",
+  #     status: "已結案",
+  #     steps: [
+  #       {
+  #         title: "報名",
+  #         date: "08/19",
+  #         info: "開始報名",
+  #         extra: "09/01報名截止\n09/05通知結果\n09/10備取通知"
+  #       },
+  #       {
+  #         title: "開始",
+  #         date: "09/19",
+  #         info: "活動開始",
+  #         extra: "08:00報到\n18:00結束"
+  #       },
+  #       {
+  #         title: "結案",
+  #         date: "11/14",
+  #         info: "寄送證明和獎勵"
+  #       }
+  #     ]
+  #   }
+  # ]
+  #
+  # raw((Kamiflex.hash(self) do
+  #   carousel do
+  #     bubbles vars, size: "mega" do |var|
+  #       header paddingAll: "20px", backgroundColor: "#0367D3", spacing: "md", paddingTop: "22px" do
+  #         vertical_box do
+  #           text var[:title], color: "#FFFFFF", size: "xl", flex: 4, weight: "bold"
+  #           text var[:subject], color: "#FFFFFFEE", size: "md"
+  #           text var[:status], color: "#FFFFFFCC", size: "sm"
+  #         end
+  #       end
+  #       body do
+  #         text var[:info], color: "#b7b7b7", size: "xs"
+  #         var[:steps].each_with_index do |step, index|
+  #           horizontal_box spacing: "lg", margin: "xl" do
+  #             text "#{step[:title]}#{step[:date]}", size: "sm", gravity: "center", wrap: true
+  #             vertical_box flex: 0 do
+  #               filler
+  #               vertical_box cornerRadius: "30px", height: "12px", width: "12px", borderColor: "#{index == 0 ? '#EF454D': '#6486E3'}", borderWidth: "2px" do
+  #               end
+  #               filler
+  #             end
+  #             text step[:info], gravity: "center", flex: 4, size: "sm"
+  #           end
+  #           if step[:extra]
+  #             horizontal_box spacing: "lg", height: "64px" do
+  #               baseline_box do
+  #                 filler
+  #               end
+  #               vertical_box width: "12px" do
+  #                 horizontal_box flex: 1 do
+  #                   filler
+  #                   vertical_box width: "2px", backgroundColor: "#6486E3" do
+  #                   end
+  #                   filler
+  #                 end
+  #               end
+  #               text step[:extra], gravity: "center", flex: 4, size: "xs", color: "#8c8c8c", wrap: true
+  #             end
+  #           end
+  #
+  #         end
+  #       end
+  #     end
+  #   end
+  # end).to_json)
 %>
