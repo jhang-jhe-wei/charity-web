@@ -3,14 +3,17 @@ zh-TW:
   helpers:
     label:
       user:
-        charitable_events: "公益活動"
+        favorited_events: "最愛的活動"
   activerecord:
     models:
       charitable_event: "公益活動"
+      favorited_event: "最愛的活動"
+      favorite_user: "最愛的使用者"
       favorite: "我的最愛"
       user: "使用者"
     attributes:
       charitable_event:
+        favorite_users: "最愛的使用者"
         extra_infos: "額外資訊"
         img_url: "圖片網址"
         name: "名稱"
@@ -41,6 +44,7 @@ zh-TW:
         created_at: "建立時間"
         updated_at: "更新時間"
         role: "角色"
+        favorited_event: "最愛的活動"
     errors:
       models:
         favorite:

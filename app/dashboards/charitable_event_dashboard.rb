@@ -25,7 +25,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     remark: Field::String,
     source_type: Field::String,
     started_at: Field::DateTime,
-    users: Field::HasMany,
+    favorite_users: Field::HasMany,
     working_type: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -60,7 +60,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     organizer
     remark
     source_type
-    users
+    favorite_users
     working_type
     created_at
     updated_at
@@ -82,7 +82,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     organizer
     remark
     source_type
-    users
+    favorite_users
     working_type
     created_at
     updated_at

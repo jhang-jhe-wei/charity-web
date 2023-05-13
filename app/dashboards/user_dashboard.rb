@@ -11,7 +11,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    charitable_events: Field::HasMany,
+    favorited_events: Field::HasMany,
     email: Field::String,
     encrypted_password: Field::String,
     favorites: Field::HasMany,
@@ -36,7 +36,7 @@ class UserDashboard < Administrate::BaseDashboard
     id
     email
     role
-    charitable_events
+    favorited_events
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -44,7 +44,7 @@ class UserDashboard < Administrate::BaseDashboard
   SHOW_PAGE_ATTRIBUTES = %i[
     id
     role
-    charitable_events
+    favorited_events
     email
     image_url
     name
@@ -57,7 +57,7 @@ class UserDashboard < Administrate::BaseDashboard
   # on the model's form (`new` and `edit`) pages.
   FORM_ATTRIBUTES = %i[
     name
-    charitable_events
+    favorited_events
     role
     email
     image_url

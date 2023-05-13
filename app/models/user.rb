@@ -6,7 +6,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :validatable, :rememberable
   has_many :favorites, dependent: :destroy
-  has_many :charitable_events, through: :favorites
+  has_many :favorited_events, through: :favorites, source: :charitable_event
   validates :role, inclusion: { in: ROLES }
 
   # params[:source_user_id]
