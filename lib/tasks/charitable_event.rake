@@ -23,14 +23,20 @@ PARSERS = [
 namespace :charitable_event do
   desc 'load from online'
   task load_data_from_online: :environment do
+    parsed_count = 0
+    saved_count = 0
+
     ActiveRecord::Base.transaction do
       PARSERS.each do |parser|
         parser.new.parse.each do |attr|
-          CharitableEvent
-            .create_with(attr)
-            .find_or_create_by(link: attr[:link])
+          parsed_count += 1
+
+          event = CharitableEvent.create_with(attr).find_or_create_by(link: attr[:link])
+          saved_count += 1 if event.persisted?
         end
       end
     end
+
+    Rails.logger.info("共爬取 #{parsed_count} 筆資料, 新增 #{saved_count} 筆資料.")
   end
 end
