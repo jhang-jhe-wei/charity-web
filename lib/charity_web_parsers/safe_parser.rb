@@ -13,7 +13,7 @@ class SafeParser < BaseParser
   end
 
   def parse_articles(page)
-    doc = Nokogiri::HTML(Faraday.get(WEB_URL).body)
+    doc = Nokogiri::HTML(Faraday.get(page).body)
     doc.css('.volunteerList .volunteerItem')
   end
 
