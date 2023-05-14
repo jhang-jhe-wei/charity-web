@@ -31,8 +31,11 @@ namespace :charitable_event do
         parser.new.parse.each do |attr|
           parsed_count += 1
 
-          event = CharitableEvent.create_with(attr).find_or_create_by(link: attr[:link])
-          saved_count += 1 if event.persisted?
+          event = CharitableEvent.find_or_initialize_by(link: attr[:link])
+          next unless event.new_record?
+
+          event.assign_attributes(attr)
+          saved_count += 1 if event.save
         end
       end
     end
