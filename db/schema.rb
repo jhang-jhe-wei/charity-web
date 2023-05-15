@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_11_135336) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_15_102220) do
   create_table "charitable_events", force: :cascade do |t|
     t.text "extra_infos"
     t.datetime "created_at", null: false
@@ -28,6 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_11_135336) do
     t.string "link"
     t.string "remark"
     t.string "source_type"
+    t.integer "city"
   end
 
   create_table "favorites", force: :cascade do |t|

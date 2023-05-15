@@ -47,10 +47,12 @@ class BaseParser
     end
     started_at, ended_at = parse_time(attributes[:time])
     registration_deadline = parse_deadline(attributes[:deadline])
+    city = parse_location(attributes[:location])
     attributes.merge({
                        started_at:,
                        ended_at:,
-                       registration_deadline:
+                       registration_deadline:,
+                       city:
                      })
   end
 
@@ -73,6 +75,15 @@ class BaseParser
     }
   end
   # rubocop:enable Metrics/MethodLength
+
+  def parse_location(location)
+    location = location.sub('台', '臺')
+    city_names = CharitableEvent.cities.keys
+    city_names.each do |city_name|
+      return city_name if location.include?(city_name)
+    end
+    nil # return nil if no city name is found in the location
+  end
 
   def parse_time(time)
     # Initialize variables
