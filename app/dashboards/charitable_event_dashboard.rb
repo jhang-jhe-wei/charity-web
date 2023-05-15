@@ -19,6 +19,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     img_url: Field::Url,
     link: Field::Url,
     location: Field::String,
+    city: Field::Select.with_options(collection: CharitableEvent.cities.keys),
     name: Field::String,
     organizer: Field::String,
     registration_deadline: Field::Date,
@@ -40,6 +41,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     id
     name
     location
+    city
     started_at
     ended_at
     registration_deadline
@@ -57,6 +59,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     registration_deadline
     event_type
     location
+    city
     organizer
     remark
     source_type
@@ -79,6 +82,7 @@ class CharitableEventDashboard < Administrate::BaseDashboard
     registration_deadline
     event_type
     location
+    city
     organizer
     remark
     source_type

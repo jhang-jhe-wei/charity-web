@@ -19,6 +19,7 @@ zh-TW:
         name: "名稱"
         organizer: "主辦單位"
         location: "地點"
+        city: "地區"
         started_at: "開始時間"
         ended_at: "結束時間"
         event_type: "活動類型"
