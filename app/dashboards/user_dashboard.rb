@@ -19,7 +19,7 @@ class UserDashboard < Administrate::BaseDashboard
     line_id: Field::String,
     line_notify_token: Field::String,
     name: Field::String,
-    role: Field::String,
+    role: Field::Select.with_options(collection: User::ROLES),
     remember_created_at: Field::DateTime,
     reset_password_sent_at: Field::DateTime,
     reset_password_token: Field::String,
