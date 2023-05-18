@@ -8,9 +8,14 @@ Rails.application.routes.draw do
     root to: 'charitable_events#index'
   end
   devise_for :users
-  root 'homes#recommend'
-  get '即時推薦', to: 'homes#recommend'
-  get '即時推薦/:page', to: 'homes#recommend'
+  root 'charitable_events#index'
+  resources :charitable_events, only: [:index] do
+    collection do
+      get 'search', to: 'charitable_events#search'
+    end
+  end
+  get '即時推薦', to: 'charitable_events#index'
+  get '即時推薦/:page', to: 'charitable_events#index'
   get '社群連結', to: 'homes#fan_page'
   get '訂閱通知', to: 'notifies#index'
   get '志工歷程', to: 'homes#volunteer_journey'
