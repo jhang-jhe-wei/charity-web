@@ -1,2 +1,2 @@
 <% content_for :title, "搜尋活動" %>
-<%= render "charitable_events/search_form.html" %>
+<%= render partial: "charitable_events/search_form", formats: :html, locals: { cities: @cities } %>

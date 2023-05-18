@@ -44,7 +44,7 @@
           end
         end
       end
-      pagenator('即時推薦', @charitable_events) do
+      pagenator('即時推薦', @charitable_events, query: @query) do
          url_button "進階搜尋", liff_path(path: search_charitable_events_path, liff_size: :compact), style: 'secondary', margin: 'md'
       end
     end

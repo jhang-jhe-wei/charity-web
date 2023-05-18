@@ -14,8 +14,8 @@ Rails.application.routes.draw do
       get 'search', to: 'charitable_events#search'
     end
   end
-  get '即時推薦', to: 'charitable_events#index'
-  get '即時推薦/:page', to: 'charitable_events#index'
+  get '即時推薦(/:page)(?*query)', to: 'charitable_events#index'
+
   get '社群連結', to: 'homes#fan_page'
   get '訂閱通知', to: 'notifies#index'
   get '志工歷程', to: 'homes#volunteer_journey'
