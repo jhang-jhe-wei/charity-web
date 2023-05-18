@@ -21,7 +21,7 @@ module ApplicationHelper
         yield if block_given?
       end
       footer do
-        text "目前在 #{@current_page}/#{[resources.total_pages, 1].max} 頁", align: 'center'
+        text "目前在 #{resources.current_page}/#{[resources.total_pages, 1].max} 頁", align: 'center'
       end
     end
   end

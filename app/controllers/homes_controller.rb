@@ -2,8 +2,7 @@
 
 class HomesController < ApplicationController
   def recommend
-    @current_page = params[:page] || 1
-    @charitable_events = CharitableEvent.all.page(@current_page)
+    @charitable_events = CharitableEvent.all.page(params[:page].to_i)
   end
 
   def fan_page; end
