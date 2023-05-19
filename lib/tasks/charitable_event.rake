@@ -42,4 +42,9 @@ namespace :charitable_event do
 
     Rails.logger.info("共爬取 #{parsed_count} 筆資料, 新增 #{saved_count} 筆資料.")
   end
+
+  desc 'notify subscribers that events are coming'
+  task notify_events_time_to_subscribers: :environment do
+    SubscriptionDispatch.new.notify_events_coming
+  end
 end
