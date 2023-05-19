@@ -3,6 +3,10 @@
     {
       "command": "rake charitable_event:load_data_from_online",
       "schedule": "@daily"
+    },
+    {
+      "command": "rake charitable_event:notify_events_time_to_subscribers",
+      "schedule": "@daily"
     }
   ]
 }
