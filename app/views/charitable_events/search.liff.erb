@@ -1,2 +1,8 @@
 <% content_for :title, "搜尋活動" %>
 <%= render partial: "charitable_events/search_form", formats: :html, locals: { cities: @cities } %>
+
+<script>
+if(!window.liff.isInClient()){
+  location.href = '/charitable_events';
+}
+</script>

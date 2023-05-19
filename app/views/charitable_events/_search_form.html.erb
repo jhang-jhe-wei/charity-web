@@ -21,26 +21,26 @@
 </form>
 
 <script>
-  // JavaScript code to handle the button click event
-  document.getElementById('searchButton').addEventListener('click', function() {
-    const city = document.getElementById('city').value;
-    const startedAt = document.getElementById('started_at').value;
-    const endedAt = document.getElementById('ended_at').value;
+// JavaScript code to handle the button click event
+document.getElementById('searchButton').addEventListener('click', function() {
+  const city = document.getElementById('city').value;
+  const startedAt = document.getElementById('started_at').value;
+  const endedAt = document.getElementById('ended_at').value;
 
-    const queryParams = `city=${city}&started_at=${startedAt}&ended_at=${endedAt}`;
+  const queryParams = `city=${city}&started_at=${startedAt}&ended_at=${endedAt}`;
 
-    // Call the LINE LIFF method to send the text to the chat room
-    window.liff.sendMessages([
-      {
-        type: 'text',
-        text: `即時推薦?${queryParams}`
-      }
-    ])
+  // Call the LINE LIFF method to send the text to the chat room
+  window.liff.sendMessages([
+    {
+      type: 'text',
+      text: `即時推薦?${queryParams}`
+    }
+  ])
     .then(() => {
       // Handle successful message sending
     })
     .catch((error) => {
       // Handle error in sending message
     });
-  });
+});
 </script>
