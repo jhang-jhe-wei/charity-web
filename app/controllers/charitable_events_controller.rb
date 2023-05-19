@@ -1,11 +1,10 @@
 # frozen_string_literal: true
 
 class CharitableEventsController < ApplicationController
-  attr_reader :query
-
   def index
+    @cities = CharitableEvent.pluck(:city).compact.uniq
     @charitable_events = CharitableEvent.all
-    apply_filters
+    apply_filters(query)
   end
 
   def search
@@ -14,13 +13,23 @@ class CharitableEventsController < ApplicationController
 
   private
 
-  def apply_filters
-    @query = Rack::Utils.parse_query(params[:query])
+  def query
+    @query ||= begin
+      query_params = Rack::Utils.parse_query(params[:query] || '')
+      {
+        city: params[:city] || query_params['city'],
+        started_at: params[:started_at] || query_params['started_at'],
+        ended_at: params[:ended_at] || query_params['ended_at'],
+        page: params[:page] || query_params['page']
+      }
+    end
+  end
 
-    filter_by_city(query['city']) if query['city'].present? && query['city'] != '全國'
-    filter_by_started_at(query['started_at']) if query['started_at'].present?
-    filter_by_ended_at(query['ended_at']) if query['ended_at'].present?
-    filter_by_page(params[:page] || query['page'])
+  def apply_filters(query)
+    filter_by_city(query[:city]) if query[:city].present? && query[:city] != '全國'
+    filter_by_started_at(query[:started_at]) if query[:started_at].present?
+    filter_by_ended_at(query[:ended_at]) if query[:ended_at].present?
+    filter_by_page(query[:page])
   end
 
   def filter_by_city(city)
