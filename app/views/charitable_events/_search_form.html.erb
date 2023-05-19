@@ -1,6 +1,6 @@
 <form id="searchForm" class="max-w-md p-4 mx-auto space-y-4">
   <div>
-    <label for="city" class="text-gray-700">City:</label>
+    <label for="city" class="text-gray-700">地區：</label>
     <select id="city" name="city" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
       <%=
         options_for_select(cities)
@@ -8,15 +8,15 @@
     </select>
   </div>
   <div>
-    <label for="started_at" class="text-gray-700">Started At:</label>
+    <label for="started_at" class="text-gray-700">活動開始：</label>
     <input type="datetime-local" id="started_at" name="started_at" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
   </div>
   <div>
-    <label for="ended_at" class="text-gray-700">Ended At:</label>
+    <label for="ended_at" class="text-gray-700">活動結束：</label>
     <input type="datetime-local" id="ended_at" name="ended_at" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
   </div>
   <div>
-    <button id="searchButton" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">Search</button>
+    <button id="searchButton" class="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700 focus:outline-none focus:shadow-outline" type="button">搜尋</button>
   </div>
 </form>
 
