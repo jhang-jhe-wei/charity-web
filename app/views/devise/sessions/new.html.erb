@@ -15,5 +15,6 @@
       </div>
       <%= f.submit "登入", class: "px-10 py-2 mt-16 text-white bg-blue-700 rounded-3xl hover:bg-white mx-auto block hover:text-blue-700 border border-blue-700 hover:cursor-pointer" %>
     <% end %>
+    <%= button_to '用 LINE 登入', user_line_omniauth_authorize_path %>
   </div>
 </div>

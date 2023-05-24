@@ -95,3 +95,5 @@ gem 'webdrivers'
 
 gem 'escompress', '~> 0.3.0'
 gem 'omniauth-line', git: 'https://github.com/etrex/omniauth-line.git'
+# for CSRF protection
+gem "omniauth-rails_csrf_protection"
