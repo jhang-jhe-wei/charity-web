@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     root to: 'charitable_events#index'
   end
   devise_for :users
-  root 'charitable_events#index'
+  root 'homes#index'
   resources :charitable_events, only: [:index] do
     collection do
       get 'search', to: 'charitable_events#search'

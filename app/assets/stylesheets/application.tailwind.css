@@ -16,4 +16,7 @@ input:-webkit-autofill:focus {
   .devise-form-input {
     @apply bg-white py-2 pl-2 rounded w-full border border-gray-300
   }
+  .gradient {
+    background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  }
 }
