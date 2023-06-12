@@ -1,33 +1,9 @@
 <div class="container py-8 mx-auto">
-  <h1 class="mb-4 text-3xl font-bold">Charitable Events</h1>
-
-  <!-- Search Form -->
-  <form action="/charitable_events" method="get" class="mb-4">
-    <div class="flex space-x-4">
-      <div class="w-1/3">
-        <label for="city" class="block text-sm font-medium text-gray-700">地區：</label>
-        <select id="city" name="city" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-          <%=
-            options_for_select(@cities)
-          %>
-        </select>
-      </div>
-      <div class="w-1/3">
-        <label for="started_at" class="block text-sm font-medium text-gray-700">活動開始：</label>
-        <input type="datetime-local" id="started_at" name="started_at" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-      </div>
-      <div class="w-1/3">
-        <label for="ended_at" class="block text-sm font-medium text-gray-700">活動結束：</label>
-        <input type="datetime-local" id="ended_at" name="ended_at" class="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-      </div>
-    </div>
-    <button type="submit" class="px-4 py-2 mt-4 font-medium text-white bg-indigo-500 hover:bg-indigo-600 rounded-md">搜尋</button>
-  </form>
-
+  <%= render 'search_form', cities: @cities %>
   <!-- Event Cards -->
-  <div class="grid grid-cols-3 gap-4">
+  <div class="mt-4 grid grid-cols-3 gap-4">
     <% @charitable_events.each do |event| %>
-      <div class="p-4 bg-white rounded-lg shadow-md">
+      <div>
         <img src="<%= event.img_url %>" alt="Event Image" class="object-cover w-full h-48 mb-4">
         <h2 class="mb-2 text-xl font-bold"><%= event.name %></h2>
         <p class="text-gray-600"><%= event.location %></p>
@@ -41,23 +17,5 @@
       </div>
     <% end %>
   </div>
-
-  <!-- Pagination -->
-  <!-- <div class="flex justify-center mt-8"> -->
-  <!--   <% if @charitable_events.total_pages > 1 %> -->
-    <!--     <nav class="inline-flex shadow rounded-md"> -->
-    <!--       <% if @charitable_events.current_page > 1 %> -->
-      <!--         <a href="/charitable_events?page=1" class="px-3 py-2 text-gray-600 bg-gray-200 rounded-l-md hover:bg-gray-300">First</a> -->
-      <!--         <a href="/charitable_events?page=<%= @charitable_events.prev_page %>" class="px-3 py-2 text-gray-600 bg-gray-200 hover:bg-gray-300">Previous</a> -->
-      <!--       <% end %> -->
-    <!--  -->
-    <!--       <% if @charitable_events.current_page < @charitable_events.total_pages %> -->
-      <!--         <a href="/charitable_events?page=<%= @charitable_events.next_page %>" class="px-3 py-2 text-gray-600 bg-gray-200 hover:bg-gray-300">Next</a> -->
-      <!--         <a href="/charitable_events?page=<%= @charitable_events.total_pages %>" class="px-3 py-2 text-gray-600 bg-gray-200 rounded-r-md hover:bg-gray-300">Last</a> -->
-      <!--       <% end %> -->
-    <!--     </nav> -->
-    <!--   <% end %> -->
-  <!-- </div> -->
-
   <%= paginate @charitable_events %>
 </div>
