@@ -1,19 +1,22 @@
 <div class="container py-8 mx-auto">
   <%= render 'search_form', cities: @cities %>
   <!-- Event Cards -->
-  <div class="mt-4 grid grid-cols-3 gap-4">
+  <div class="mt-8 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     <% @charitable_events.each do |event| %>
-      <div>
-        <img src="<%= event.img_url %>" alt="Event Image" class="object-cover w-full h-48 mb-4">
-        <h2 class="mb-2 text-xl font-bold"><%= event.name %></h2>
-        <p class="text-gray-600"><%= event.location %></p>
-        <p class="text-gray-600">活動開始：<%= event.started_at&.strftime("%Y-%m-%d %H:%M") %></p>
-        <p class="text-gray-600">活動結束：<%= event.ended_at&.strftime("%Y-%m-%d %H:%M") %></p>
-        <p class="text-gray-600">報名截止：<%= event.registration_deadline&.strftime("%Y-%m-%d %H:%M") %></p>
-        <div class="flex justify-between mt-4">
-          <a href="<%= event.link %>" class="text-indigo-500 hover:text-indigo-600">Visit Website</a>
-          <button class="text-indigo-500 hover:text-indigo-600" onclick="addToFavorites(<%= event.id %>)">Add to Favorites</button>
+      <div class="flex flex-col justify-between w-full max-w-sm mx-auto bg-white border border-gray-200 rounded-lg shadow">
+        <%= image_tag event.img_url, class: "object-cover w-full h-48 mb-4" %>
+        <div class="flex-1 p-5">
+          <h2 class="mb-2 text-xl font-bold"><%= event.name %></h2>
+          <ul class="max-w-md text-gray-500 list-disc list-inside space-y-1 dark:text-gray-400">
+            <li> 活動地點：<%= event.location || '請至官網查詢' %> </li>
+            <li>活動開始：<%= event.started_at&.strftime("%Y-%m-%d %H:%M") || '請至官網查詢' %></li>
+            <li>活動結束：<%= event.ended_at&.strftime("%Y-%m-%d %H:%M") || '請至官網查詢' %></li>
+            <li>報名截止：<%= event.registration_deadline&.strftime("%Y-%m-%d %H:%M") || '請至官網查詢' %></li>
+          </ul>
         </div>
+        <%= link_to event.link, class: "px-3 py-2 text-sm font-medium text-center text-white rounded-b-lg gradient focus:ring-4 focus:outline-none focus:ring-blue-300 hover:opacity-95", target: '_blank' do %>
+          前往網站
+        <% end %>
       </div>
     <% end %>
   </div>
