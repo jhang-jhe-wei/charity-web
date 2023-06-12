@@ -7,7 +7,9 @@ Rails.application.routes.draw do
 
     root to: 'charitable_events#index'
   end
-  devise_for :users
+  devise_for :users, controllers: {
+    omniauth_callbacks: "omniauth_callbacks",
+  }
   root 'homes#index'
   resources :charitable_events, only: [:index] do
     collection do
