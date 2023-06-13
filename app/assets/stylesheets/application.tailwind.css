@@ -20,3 +20,10 @@ input:-webkit-autofill:focus {
     background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
   }
 }
+
+input[type="date"] {
+  display:block;
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  min-height: 1.2em;
+}
