@@ -1,5 +1,5 @@
 <div class="container py-8 mx-auto">
-  <%= render 'search_form', cities: @cities %>
+  <%= render 'search_form', cities: @cities, query: @query %>
   <!-- Event Cards -->
   <div class="mt-8 grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     <% @charitable_events.each do |event| %>
