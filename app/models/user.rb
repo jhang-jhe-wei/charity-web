@@ -8,6 +8,7 @@ class User < ApplicationRecord
     :recoverable, :rememberable, :validatable,
     :omniauthable, omniauth_providers: [:line]
 
+  has_many :favorites, dependent: :destroy
   has_many :favorited_events, through: :favorites, source: :charitable_event
   validates :role, inclusion: { in: ROLES }
 
