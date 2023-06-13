@@ -1,32 +1,32 @@
 <form class="grid gap-y-4">
-      <div class="grid grid-cols-1 gap-y-4 lg:grid-cols-5 lg:gap-x-4">
-        <select class="text-sm text-gray-900 border border-gray-300 rounded-lg col-span-full lg:col-span-3 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 p-2.5" id="city" name="city">
-          <%= options_for_select(cities, selected: query[:city]) %>
-        </select>
-        <div class="grid grid-cols-1 md:flex lg:col-span-2 md:gap-x-4">
-          <input class="col-span-full md:flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5" id="started_at" name="started_at" type="datetime-local" placeholder="起始時間" value="<%= query[:started_at] %>"/>
-          <div class="flex items-center justify-center col-span-full">
-            <p class="text-center">to</p>
-          </div>
-          <input class="col-span-full md:flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5" type="datetime-local" id="ended_at" name="ended_at" placeholder="結束時間" value="<%= query[:ended_at] %>"/>
-        </div>
+  <div class="grid grid-cols-1 gap-y-4 lg:grid-cols-5 lg:gap-x-4">
+    <select class="text-sm text-gray-900 border border-gray-300 rounded-lg col-span-full lg:col-span-3 bg-gray-50 focus:ring-blue-500 focus:border-blue-500 p-2.5" id="city" name="city">
+      <%= options_for_select(cities, selected: query[:city]) %>
+    </select>
+    <div class="grid grid-cols-1 md:flex lg:col-span-2 md:gap-x-4">
+      <input class="col-span-full md:flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5" id="started_at" name="started_at" type="datetime-local" placeholder="起始時間" value="<%= query[:started_at] %>"/>
+      <div class="flex items-center justify-center col-span-full">
+        <p class="text-center">to</p>
       </div>
-      <div class="grid gap-y-4">
-        <div class="lg:flex lg:gap-x-4">
-          <input type="text" id="name" name="name" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5" value="<%= query[:name] %>" placeholder="請輸入關鍵字"/>
-          <button class="hidden lg:block sm:w-auto p-2.5 text-sm font-medium text-white rounded-lg gradient focus:ring-4 focus:outline-none focus:ring-blue-300 hover:opacity-95">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-            </svg>
-          </button>
-        </div>
-        <button class="col-span-full lg:hidden w-full sm:w-auto p-2.5 text-sm font-medium text-white rounded-lg gradient focus:ring-4 focus:outline-none focus:ring-blue-300 hover:opacity-95">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </button>
-      </div>
-    </form>
+      <input class="col-span-full md:flex-1 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5" type="datetime-local" id="ended_at" name="ended_at" placeholder="結束時間" value="<%= query[:ended_at] %>"/>
+    </div>
+  </div>
+  <div class="grid gap-y-4">
+    <div class="lg:flex lg:gap-x-4">
+      <input type="text" id="name" name="name" class="w-full bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5" value="<%= query[:name] %>" placeholder="請輸入關鍵字"/>
+      <button class="hidden lg:block sm:w-auto p-2.5 text-sm font-medium text-white rounded-lg gradient focus:ring-4 focus:outline-none focus:ring-blue-300 hover:opacity-95">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+      </button>
+    </div>
+    <button class="col-span-full lg:hidden w-full sm:w-auto p-2.5 text-sm font-medium text-white rounded-lg gradient focus:ring-4 focus:outline-none focus:ring-blue-300 hover:opacity-95">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+      </svg>
+    </button>
+  </div>
+</form>
 <script>
 // JavaScript code to handle the button click event
 document.getElementById('searchButton').addEventListener('click', function() {
@@ -52,3 +52,10 @@ document.getElementById('searchButton').addEventListener('click', function() {
     });
 });
 </script>
+<style>
+input[type="datetime-local"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  min-height: 1.2em;
+}
+</style>
