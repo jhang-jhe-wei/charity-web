@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
 class FavoritesController < ApplicationController
-  before_action :set_event
+  before_action :set_event, only: [:add, :delete]
 
   def index
     @events = current_user.favorited_events
   end
 
   def add
-    current_user.favorites.create!(charitable_event: @event)
+    current_user.favorited_events << @event
     @events = current_user.favorited_events
     render :index
   rescue ActiveRecord::RecordInvalid => e
