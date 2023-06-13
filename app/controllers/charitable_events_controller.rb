@@ -9,6 +9,7 @@ class CharitableEventsController < ApplicationController
 
   def search
     @cities = CharitableEvent.pluck(:city).compact.uniq
+    query
   end
 
   private
