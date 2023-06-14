@@ -22,7 +22,7 @@ class CharitableEventsController < ApplicationController
         started_at: params[:started_at] || query_params['started_at'],
         ended_at: params[:ended_at] || query_params['ended_at'],
         page: params[:page] || query_params['page'],
-        name: params[:name]
+        name: params[:name] || query_params['name']
       }
     end
   end
