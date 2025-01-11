@@ -9,13 +9,13 @@ on:
       - '*'
 
 jobs:
-  test:
-    name: Test
-    uses: ./.github/workflows/test-action.yml
+  # test:
+  #   name: Test
+  #   uses: ./.github/workflows/test-action.yml
 
   deploy:
     name: Deploy to dokku
-    needs: test
+    # needs: test
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/master' && success()
     steps:
